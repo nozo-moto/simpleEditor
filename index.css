@@ -1,0 +1,39 @@
+html{
+    height: 100%;
+}
+
+body{
+    margin: 0%; 
+    height: 100%;
+    background-color: gray;
+}
+    
+#leftside{
+    width: 31.2%;
+    height: 100%;
+    float: left;
+    background-color: lightyellow;
+    margin-right: 1px;
+}
+
+#rightside{
+    width: 68.5%;
+    height: 100%;
+    float: right;
+    background-color: wheat;
+    margin-left: 1px;
+}
+
+#memoheader{
+    width: 100%;
+    height: 50px;
+    border-top-right-radius: 5px;
+    background-color: #F8E0E0;
+}
+
+#memobar{
+    width: 100%;
+    height: 10%;
+    background-color: #F2F5A9;
+}
+
