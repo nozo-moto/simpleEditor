@@ -1,10 +1,12 @@
 html{
     height: 100%;
+    width: 100%;
 }
 
 body{
     margin: 0%; 
     height: 100%;
+    width: 100%;
     background-color: gray;
 }
     
@@ -13,27 +15,44 @@ body{
     height: 100%;
     float: left;
     background-color: lightyellow;
-    margin-right: 1px;
 }
 
 #rightside{
-    width: 68.5%;
+    width: 68%;
     height: 100%;
     float: right;
     background-color: wheat;
     margin-left: 1px;
+    position: fixed;
+    left: 31.2%;
 }
 
 #memoheader{
     width: 100%;
-    height: 50px;
+    height: 5%;
     border-top-right-radius: 5px;
     background-color: #F8E0E0;
+    border-bottom: solid #808000 1px;
+}
+
+#memobars{
+    width: 100%;
+    height: 95%;
 }
 
 #memobar{
     width: 100%;
     height: 10%;
+    text-align: center;
     background-color: #F2F5A9;
+    border-bottom: solid #808000 1px;
 }
 
+li text{
+    /* border: solid #000000 1px; */
+    text-align: center;
+}
+
+#leftside li{
+    list-style: none;
+}
