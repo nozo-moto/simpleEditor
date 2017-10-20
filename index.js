@@ -1,6 +1,8 @@
 const editor = ace.edit("rightside");
 const fs=require("fs");
 
+const filedirectory = "./textfile/"
+var filename;
 editor.setTheme("ace/theme/github");
 editor.getSession().setMode("ace/mode/ayu-light");
 editor.setShowPrintMargin(false);
@@ -9,8 +11,12 @@ $("#rightside").on("keydown", function () {
     autoSave(saveFile);
 });
 
-$("#leftside > #memobars > #memobar").on("click", function(e){
-    console.log($(this).attr("id"));
+$("#leftside").on("click", function(e){
+    $(e.target).find('text').each(function(){
+        console.log($(this).text());
+        filename = $(this).text();
+    });
+    readFile(filename);
 });
 
 function autoSave(callback) {
@@ -18,17 +24,13 @@ function autoSave(callback) {
 }
 
 const saveFile = function () {
-    fs.writeFileSync("sample.txt", editor.getValue());
+    fs.writeFileSync(filedirectory + filename, editor.getValue());
     console.log('saved');
 }
 
 const readFile = function(filepath){
-    const path = "./textfile/" + filepath
+    const path = filedirectory + filepath;
     fs.readFile(path, function (error, text) {
-      if (error != null) {
-        alert('error : ' + error);
-        return;
-      }
-      editor.setValue(text.toString(), -1);
-    });  
+      editor.setValue(text.toString());
+    });
 }
