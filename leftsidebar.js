@@ -1,8 +1,8 @@
-const leftside = document.getElementById('memobars');
+const leftside = document.getElementById('leftside');
 fs.readdir('./textfile', function (err, files) {
     if (err) throw err;
     files.forEach(function (e) {
-        const bar = document.createElement('div');
+        const bar = document.createElement('li');
         bar.setAttribute("id", "memobar");
         const title = document.createElement('text');
         title.appendChild(document.createTextNode(e));
