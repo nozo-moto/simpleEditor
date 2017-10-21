@@ -4,11 +4,8 @@ const BrowserWindow = electron.BrowserWindow;
   
 const path = require('path');
 const url = require('url');
-const fs = require('fs');
 
 let mainWindow;
-
-fs.accessSync('./textfile');
 
 function createWindow () {
   mainWindow = new BrowserWindow({width: 800, height: 600});
