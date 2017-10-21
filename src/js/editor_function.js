@@ -1,39 +1,55 @@
-// 左側のバーの操作
+// 現在編集しているファイル
+let now_editing_filename;
 
-// 左側のファイルがクリックされた際、ファイルを読み込み、Editorで編集できるようにする。
-const select_file = function (e) {
-    $(e.target).find('text').each(function () {
-        console.log($(this).text());
-        filename = $(this).text();
-    });
-    readFile(filename);
-}
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
 
-$("#leftside").on("click", select_file(e));
+// +++++ 左側のバーの操作
 
-// ファイルを読み込みEditorにセットする
+// ファイルを読み込みEditorにセットする関数
+// ---------------------------------------------------------------------------------
 const readFile = function (filepath) {
     const path = filedirectory + filepath;
     fs.readFile(path, function (error, text) {
         editor.setValue(text.toString());
     });
 }
-
-
-// 右側のバーの操作
-
-
-// editor の設定をする
 // ---------------------------------------------------------------------------------
-const setEditor = function () { 
-    const editor = ace.edit("rightside");
-    editor.setTheme("ace/theme/github");
-    editor.getSession().setMode("ace/mode/ayu-light");
-    editor.setShowPrintMargin(false);
-    editor.renderer.setShowGutter(false);
-    readFile();
+// 保存する関数
+const saveFile = function () {
+    fs.writeFileSync(filedirectory + now_editing_filename, editor.getValue());
 }
 // ---------------------------------------------------------------------------------
+
+// すべての左側のファイル一覧の色を変える
+const change_files_background_color = function(){
+    $("[id=memobar]").css('background', 'lightyellow');
+}
+
+// 左側のファイルがクリックされた際、ファイルを読み込み、Editorで編集できるようにする。
+// ---------------------------------------------------------------------------------
+const select_file = function (e) {
+    $(e.target).find('text').each(function () {
+        now_editing_filename = $(this).text();
+    });
+    change_files_background_color();
+    $('#' + now_editing_filename).parent().css('background','pink');
+    readFile(now_editing_filename);
+}
+
+$("#leftside").on("click", select_file);
+// ---------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+
+// +++++ 右側のバーの操作
 
 // オートセーブ機能
 // ---------------------------------------------------------------------------------
@@ -45,8 +61,6 @@ function autoSave(callback) {
     callback();
 }
 
-const saveFile = function () {
-    fs.writeFileSync(filedirectory + filename, editor.getValue());
-}
+
 // ---------------------------------------------------------------------------------
 
