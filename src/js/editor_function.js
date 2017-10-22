@@ -14,7 +14,9 @@ let now_editing_filename;
 const readFile = function (filepath) {
     const path = filedirectory + filepath;
     fs.readFile(path, function (error, text) {
-        editor.setValue(text.toString());
+        editor.setValue(
+            text.toString(),
+            1);
     });
 }
 // ---------------------------------------------------------------------------------
@@ -25,7 +27,7 @@ const saveFile = function () {
 // ---------------------------------------------------------------------------------
 
 // すべての左側のファイル一覧の色を変える
-const change_files_background_color = function(){
+const change_files_background_color = function () {
     $("[id=memobar]").css('background', 'lightyellow');
 }
 
@@ -36,7 +38,7 @@ const select_file = function (e) {
         now_editing_filename = $(this).text();
     });
     change_files_background_color();
-    $('#' + now_editing_filename).parent().css('background','pink');
+    $('#' + now_editing_filename).parent().css('background', 'pink');
     readFile(now_editing_filename);
 }
 
