@@ -35,7 +35,7 @@ const set_files_leftbar = function () {
             bar.appendChild(title);
             leftside.appendChild(bar);
         }, this);
-        $('#' + files[0]).parent().css('background','pink');
+        $('#' + files[0]).parent().css('background','MistyRose');
     });
 }
 set_files_leftbar();
