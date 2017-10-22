@@ -4,10 +4,16 @@ html{
 }
 
 body{
+    display: flex;
     margin: 0%; 
     height: 100%;
     width: 100%;
     background-color: gray;
+}
+
+#mainbar{
+    height: 100%;
+    width: 100%;
 }
     
 #leftside{
