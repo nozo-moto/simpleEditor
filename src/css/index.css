@@ -1,6 +1,7 @@
 html{
     height: 100%;
     width: 100%;
+    -webkit-app-region: drag;
 }
 
 body{
@@ -9,25 +10,38 @@ body{
     margin: 0%; 
     height: 100%;
     width: 100%;
+    background-color: GhostWhite;
+
 }
 
 #menubar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     height: 5%;
     width: 100%;
-    background-color: #FDC96E;
+    background-color: Silver;
     border: 1px;
+}
+
+#new{
+    aria-hidden: "true";
+}
+
+#delete{
+    aria-hidden: "true";
 }
 
 #mainbar{
     height: 95%;
     width: 100%;
 }
-    
+
 #leftside{
     width: 32%;
     height: 100%;
     float: left;
-    background-color: lightyellow;
     overflow: auto;
 }
 
@@ -35,7 +49,6 @@ body{
     width: 68%;
     height: 100%;
     float: right;
-    background-color: lightyellow;
     margin-left: 1px;
     position: fixed;
     left: 32%;
@@ -45,19 +58,16 @@ body{
 #memobars{
     width: 100%;
     height: 100%;
-    background-color: lightyellow;
 }
 
 #memobar{
     width: 100%;
     height: 50px;
     text-align: center;
-    background-color: lightyellow;
     border-bottom: solid #808000 1px;
 }
 
 li text{
-    /* border: solid #000000 1px; */
     text-align: center;
 }
 

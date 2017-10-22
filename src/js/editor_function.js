@@ -28,7 +28,7 @@ const saveFile = function () {
 
 // すべての左側のファイル一覧の色を変える
 const change_files_background_color = function () {
-    $("[id=memobar]").css('background', 'lightyellow');
+    $("[id=memobar]").css('background', 'GhostWhite');
 }
 
 // 左側のファイルがクリックされた際、ファイルを読み込み、Editorで編集できるようにする。
@@ -38,7 +38,7 @@ const select_file = function (e) {
         now_editing_filename = $(this).text();
     });
     change_files_background_color();
-    $('#' + now_editing_filename).parent().css('background', 'pink');
+    $('#' + now_editing_filename).parent().css('background', 'MistyRose');
     readFile(now_editing_filename);
 }
 
